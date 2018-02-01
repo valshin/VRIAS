@@ -17,4 +17,11 @@ public class JsonEntitySchemaBuilderTest {
         String result = esb.build();
         JsonAssert.areEqual(result, "{}");
     }
+
+    @Test
+    public void shouldReturnJsonWithName_whenNamePassed() {
+        EntitySchemaBuilder esb = new JsonEntitySchemaBuilder();
+        String result = esb.name("TestSchema").build();
+        JsonAssert.areEqual(result, "{\"name\": \"TestSchema\"}");
+    }
 }
