@@ -1,7 +1,15 @@
 package core.entity.schema;
 
-public interface EntitySchemaBuilder {
-    String build();
+import java.util.Set;
 
-    EntitySchemaBuilder name(String name);
+public interface EntitySchemaBuilder {
+    EntitySchema build();
+
+    EntitySchemaBuilder setName(String name);
+
+    String getName();
+
+    EntitySchemaBuilder setProperties(Set<EntitySchemaProperty> properties);
+
+    Set<EntitySchemaProperty> getProperties();
 }
