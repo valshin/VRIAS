@@ -11,7 +11,7 @@ import java.util.Set;
 
 import static org.junit.Assert.assertTrue;
 
-public class ToJsonEntitySchemaSerializationTest {
+public class JsonEntitySchemaSerializationTest {
 
     private EntitySchemaBuilder esb;
     private JsonEntitySchemaSerializer ess;
