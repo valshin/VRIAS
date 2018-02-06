@@ -44,7 +44,20 @@ public class JsonEntitySchemaSerializationTest {
                 .setProperties(properties)
                 .build();
         String resultJson = ess.toJson(schema);
-        JsonAssert.areEqual(resultJson, "{\"name\": \"TestSchema\", \"properties\": [{\"name\":\"TestPropertyString\", \"type\":\"STRING\"}, {\"name\":\"TestPropertyInteger\", \"type\":\"INTEGER\"}]}");
+        JsonAssert.areEqual(resultJson,
+                "{" +
+                    "\"name\": \"TestSchema\", " +
+                    "\"properties\": [" +
+                        "{" +
+                            "\"name\":\"TestPropertyString\", " +
+                            "\"type\":\"STRING\"" +
+                        "}, " +
+                        "{" +
+                            "\"name\":\"TestPropertyInteger\", " +
+                            "\"type\":\"INTEGER\"" +
+                        "}" +
+                    "]" +
+                "}");
     }
 
     @Test
@@ -73,7 +86,20 @@ public class JsonEntitySchemaSerializationTest {
                 .setName("TestSchema")
                 .setProperties(properties)
                 .build();
-        EntitySchema schema = ess.fromJson("{\"name\": \"TestSchema\", \"properties\": [{\"name\":\"TestPropertyString\", \"type\":\"STRING\"}, {\"name\":\"TestPropertyInteger\", \"type\":\"INTEGER\"}]}");
+        EntitySchema schema = ess.fromJson(
+                "{" +
+                        "\"name\": \"TestSchema\", " +
+                        "\"properties\": [" +
+                            "{" +
+                                "\"name\":\"TestPropertyString\", " +
+                                "\"type\":\"STRING\"" +
+                            "}, " +
+                            "{" +
+                                "\"name\":\"TestPropertyInteger\", " +
+                                "\"type\":\"INTEGER\"" +
+                            "}" +
+                        "]" +
+                "}");
         assertTrue(expectedSchema.equals(schema));
     }
 }
