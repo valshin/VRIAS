@@ -1,4 +1,4 @@
-package core.entity.schema.json;
+package core.entity.schema.serialization.json;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -16,6 +16,14 @@ public class JacksonObjectSerializer implements JsonObjectSerializer {
     public String getJsonString(Object o) {
         try {
             return mapper.writeValueAsString(o);
+        } catch (IOException e) {
+            throw new JsonSerializerException(e);
+        }
+    }
+
+    public Object getObject(String json, Class clazz) {
+        try {
+            return mapper.readValue(json, clazz);
         } catch (IOException e) {
             throw new JsonSerializerException(e);
         }

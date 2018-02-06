@@ -14,6 +14,9 @@ public class EntitySchemaProperty {
         return type;
     }
 
+    public EntitySchemaProperty() {
+    }
+
     public EntitySchemaProperty(String name, EntitySchemaPropertyType type) {
         this.name = name;
         this.type = type;
